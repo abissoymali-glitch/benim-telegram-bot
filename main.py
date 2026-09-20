@@ -25,8 +25,7 @@ except ImportError:
         HAS_PSUTIL = False
 
 # Buraya kendi ana botunuzun Token değerini yazın
-API_KEY = '
-8961710042:AAFyPg0OPrJPEU1ZKOLOroTFiJua-2RLmZg' 
+API_KEY = '8961710042:AAFyPg0OPrJPEU1ZKOLOroTFiJua-2RLmZg' 
 ADMIN_ID = 8687183701
 SCRIPT_FOLDER = 'user_scripts'
 DATA_FILE = 'user_data.json'
