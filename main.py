@@ -24,8 +24,8 @@ except ImportError:
     except Exception:
         HAS_PSUTIL = False
 
-# Buraya kendi ana botunuzun Token değerini yazın
-API_KEY = '8961710042:AAFyPg0OPrJPEU1ZKOLOroTFiJua-2RLmZg' 
+# Buraya BotFather'dan aldığın YENİ Token değerini yazın
+API_KEY = '8961710042:AAHbAGMFlvvHopd8r1nM8sA3MelFNPMBgbA' 
 ADMIN_ID = 8687183701
 SCRIPT_FOLDER = 'user_scripts'
 DATA_FILE = 'user_data.json'
@@ -40,7 +40,7 @@ CHANNEL_URL = 'https://t.me/YxceBerrxk'
 bot = telebot.TeleBot(API_KEY)
 os.makedirs(SCRIPT_FOLDER, exist_ok=True)
 
-# Veri yapısı değişti: { "user_id": { "script_id": { ... } } }
+# Veri yapısı: { "user_id": { "script_id": { ... } } }
 user_data = {}
 cooldowns = {}
 lock = Lock()
@@ -572,6 +572,13 @@ import atexit
 atexit.register(lambda: [stop_all_user_scripts(int(uid)) for uid in list(user_data.keys())])
 
 print("VDS Çoklu Bot Paneli aktif ve çalışıyor.")
+
+# Çakışmaları ve webhooks kalıntılarını temizle
+try:
+    bot.remove_webhook()
+    time.sleep(1)
+except Exception:
+    pass
 
 # Çökme önleyici güvenli sonsuz döngü (Mobil panel uyumlu)
 while True:
