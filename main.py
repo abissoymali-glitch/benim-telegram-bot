@@ -580,10 +580,13 @@ try:
 except Exception:
     pass
 
-# Çökme önleyici güvenli sonsuz döngü (Mobil panel uyumlu)
+# Çakışma ve 409 hatalarını ele alan güvenli sonsuz döngü
 while True:
     try:
-        bot.polling(none_stop=True, interval=3, timeout=30)
+        bot.remove_webhook()
+        time.sleep(1)
+        bot.infinity_polling(timeout=60, long_polling_timeout=30)
     except Exception as e:
-        print(f"Bağlantı hatası yakalandı, bot yeniden başlatılıyor: {e}")
-        time.sleep(5)
+        print(f"Hata yakalandı: {e}. 10 saniye sonra yeniden denenecek...")
+        time.sleep(10)
+
