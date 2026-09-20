@@ -25,7 +25,7 @@ except ImportError:
         HAS_PSUTIL = False
 
 # Buraya BotFather'dan aldığın YENİ Token değerini yazın
-API_KEY = '8961710042:AAHbAGMFlvvHopd8r1nM8sA3MelFNPMBgbA' 
+API_KEY = '8961710042:AAFyPg0OPrJPEU1ZKOLOroTFiJua-2RLmZg' 
 ADMIN_ID = 8687183701
 SCRIPT_FOLDER = 'user_scripts'
 DATA_FILE = 'user_data.json'
